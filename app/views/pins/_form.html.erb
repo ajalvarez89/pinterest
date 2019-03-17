@@ -10,12 +10,20 @@
       </ul>
     </div>
   <% end %>
+    <div class="form-group">
+    <div class="field">
+      <%= form.label :name %><br>
+      <%= form.text_field :name, :class => 'form-control' %>
+    </div>
+  </div>
+
   <div class="form-group">
     <div class="field">
       <%= form.label :photo %><br>
       <%= form.text_field :photo, :class => 'form-control' %>
     </div>
   </div>
+
   <div class="form-group">
     <div class="field">
       <%= form.label :description %><br>
