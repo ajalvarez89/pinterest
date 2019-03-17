@@ -1,14 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Photo:</strong>
-  <%= image_tag(@pin.photo, :style => 'width:400px') %>
-</p>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="thumbnail">
+				<p>
+				  <strong>Description:</strong>
+				  <%= @pin.description %>
+				</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @pin.description %>
-</p>
+				<p>
+				  <strong>Photo:</strong>
+				  <%= image_tag(@pin.photo, :style => 'width:400px') %>
+				</p>
 
-<%= link_to 'Edit', edit_pin_path(@pin) %> |
-<%= link_to 'Back', pins_path %>
+				<%= link_to 'Edit', edit_pin_path(@pin), :class => 'btn' %> |
+				<%= link_to 'Back', pins_path , :class => 'btn'%>
+			</div>
+		</div>
+	</div>		
+</div>
+
