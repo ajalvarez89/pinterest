@@ -4,23 +4,26 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/welcome/index">QUILLA PINTEREST</a>
+    <a class="navbar-brand" href="<%= root_path %>">QUILLA PINTEREST</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="/pins">Pins <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="<%= pins_path %>">Pins <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= mypins_path %>">Mis Pins <span class="sr-only">(current)</span></a>
         </li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
         <% if current_user.nil? %>
-        <li class="nav-item"><a class="nav-link" href="/users/sign_in"> Ingreso</a></li>
-        <li class="nav-item"><a class="nav-link" href="/users/sign_up"> Registro</a></li>   
+        <li class="nav-item"><a class="nav-link" href="<%= new_user_session_path %>"> Ingreso</a></li>
+        <li class="nav-item"><a class="nav-link" href="<%= new_user_registration_path %>"> Registro</a></li>   
         <% else %>
-        <li class="nav-item"><a class="nav-link" href="/users/sign_out" data-method="delete"> Salir</a></li>
+        <li class="nav-item"><a class="nav-link" href="<%=destroy_user_session_path%>" data-method="delete"> Salir</a></li>
         <% end %>
       </ul>
       

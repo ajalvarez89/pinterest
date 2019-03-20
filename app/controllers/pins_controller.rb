@@ -5,17 +5,20 @@ class PinsController < ApplicationController
   #seleccionar los pins del usuario
   def mypins
     @pins = current_user.pins 
+
   end
 
   def pinsof
     @user_id = params[:user_id]
+    @user = User.find(@user_id)
+    @pins = @user.pins
   end
   #before_filter
   # GET /pins
   # GET /pins.json
   def index
     @pins = Pin.all
-  end 
+  end   
 
   # GET /pins/1
   # GET /pins/1.json
@@ -25,6 +28,7 @@ class PinsController < ApplicationController
   # GET /pins/new
   def new
     @pin = Pin.new
+
   end
 
   # GET /pins/1/edit
@@ -79,6 +83,6 @@ class PinsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pin_params
-      params.require(:pin).permit(:photo, :description,:name)
+      params.require(:pin).permit(:photo, :description,:name,:user_id)
     end
 end
